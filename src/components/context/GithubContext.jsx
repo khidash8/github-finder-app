@@ -26,7 +26,7 @@ export const GithubProvider = ({ children }) => {
       // Make a GET request to the GitHub API to fetch user data
       const response = await fetch(`https://api.github.com/users`, {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+          Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
         },
       });
 
@@ -54,7 +54,7 @@ export const GithubProvider = ({ children }) => {
         `https://api.github.com/search/users?q=${text}`,
         {
           headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+            Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
           },
         },
       );
@@ -81,7 +81,7 @@ export const GithubProvider = ({ children }) => {
       // Make a GET request to the GitHub API to fetch user data
       const response = await fetch(`https://api.github.com/users/${login}`, {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+          Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
         },
       });
 
@@ -115,7 +115,7 @@ export const GithubProvider = ({ children }) => {
         `https://api.github.com/users/${login}/repos?per_page=10&sort=created:asc`,
         {
           headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+            Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
           },
         },
       );
