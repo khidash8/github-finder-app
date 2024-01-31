@@ -3,9 +3,10 @@ import GithubContext from "../components/context/GithubContext";
 import { Link, useParams } from "react-router-dom";
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from "react-icons/fa";
 import RepoList from "../components/repos/RepoList";
+import Spinner from "../components/layout/Spinner";
 
 const SingleUser = () => {
-  const { getSingleUser, user, repos, getUserRepos } =
+  const { getSingleUser, user, repos, getUserRepos, loading } =
     useContext(GithubContext);
 
   const param = useParams();
@@ -32,6 +33,10 @@ const SingleUser = () => {
     public_gists,
     hireable,
   } = user;
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="mx-auto w-full lg:w-10/12">
@@ -112,10 +117,10 @@ const SingleUser = () => {
       </div>
 
       <div className="stats mb-6 w-full rounded-lg bg-base-100 py-5 shadow-md">
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
           <div className="stat">
-            <div className="stat-figure text-secondary">
-              <FaUsers className="text-3xl md:text-5xl" />
+            <div className="stat-figure text-primary">
+              <FaUsers className="text-3xl text-blue-400 md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Followers</div>
             <div className="stat-value pr-5 text-3xl md:text-4xl">
@@ -125,7 +130,7 @@ const SingleUser = () => {
 
           <div className="stat">
             <div className="stat-figure text-secondary">
-              <FaUserFriends className="text-3xl md:text-5xl" />
+              <FaUserFriends className="text-3xl text-blue-400 md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Following</div>
             <div className="stat-value pr-5 text-3xl md:text-4xl">
@@ -135,7 +140,7 @@ const SingleUser = () => {
 
           <div className="stat">
             <div className="stat-figure text-secondary">
-              <FaCodepen className="text-3xl md:text-5xl" />
+              <FaCodepen className="text-3xl text-blue-400 md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Public Repos</div>
             <div className="stat-value pr-5 text-3xl md:text-4xl">
@@ -145,7 +150,7 @@ const SingleUser = () => {
 
           <div className="stat">
             <div className="stat-figure text-secondary">
-              <FaStore className="text-3xl md:text-5xl" />
+              <FaStore className="text-3xl text-blue-400 md:text-5xl" />
             </div>
             <div className="stat-title pr-5">Public Gists</div>
             <div className="stat-value pr-5 text-3xl md:text-4xl">

@@ -12,7 +12,7 @@ const UserResults = () => {
 
   return (
     <div className="grid-col-1 lg:grid-col-3 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-      {users.map((user) => (
+      {users?.map((user) => (
         <div className="card bg-base-100 shadow-xl" key={user.id}>
           <UserItems user={user} />
         </div>
