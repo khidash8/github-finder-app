@@ -1,11 +1,10 @@
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import spinner from "../assets/spinner.gif";
+// import spinner from "../assets/spinner.gif";
 
 const NotFound = () => {
   return (
     <div className="hero">
-      <img className="w-24 rounded-lg" src={spinner} alt="" />
       <div className="hero-content text-center">
         <div className="max-w-lg">
           <h1 className="mb-8 text-8xl font-bold">Oops!</h1>
@@ -14,6 +13,7 @@ const NotFound = () => {
             <FaHome className="mr-2" />
             Back To Home
           </Link>
+          {/* <img className="w-24 rounded-lg" src={spinner} alt="" /> */}
         </div>
       </div>
     </div>
