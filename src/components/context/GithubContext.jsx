@@ -24,11 +24,12 @@ export const GithubProvider = ({ children }) => {
     setLoading();
     try {
       // Make a GET request to the GitHub API to fetch user data
-      const response = await fetch(`https://api.github.com/users`, {
-        headers: {
-          Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
-        },
-      });
+      const response = await fetch(`https://api.github.com/users`);
+      // // Make a GET request to the GitHub API to fetch user data
+      // const response = await fetch(`https://api.github.com/users`, {
+      //   headers: {
+      //     Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+      //   },
 
       // Extract the JSON data from the response
       const data = await response.json();
@@ -52,12 +53,15 @@ export const GithubProvider = ({ children }) => {
       // Make a GET request to the GitHub API to fetch user data
       const response = await fetch(
         `https://api.github.com/search/users?q=${text}`,
-        {
-          headers: {
-            Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
-          },
-        },
       );
+      // const response = await fetch(
+      //   `https://api.github.com/search/users?q=${text}`,
+      //   {
+      //     headers: {
+      //       Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+      //     },
+      //   },
+      // );
 
       // Extract the JSON data from the response
       const { items } = await response.json();
@@ -79,11 +83,14 @@ export const GithubProvider = ({ children }) => {
 
     try {
       // Make a GET request to the GitHub API to fetch user data
-      const response = await fetch(`https://api.github.com/users/${login}`, {
-        headers: {
-          Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
-        },
-      });
+      const response = await fetch(
+        `https://api.github.com/users/${login}`,
+        // {
+        //   headers: {
+        //     Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+        //   },
+        // }
+      );
 
       // Check if the response is successful
       if (!response.ok) {
@@ -113,11 +120,11 @@ export const GithubProvider = ({ children }) => {
       // Make a GET request to the GitHub API to fetch user data
       const response = await fetch(
         `https://api.github.com/users/${login}/repos?per_page=10&sort=created:asc`,
-        {
-          headers: {
-            Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
-          },
-        },
+        // {
+        //   headers: {
+        //     Authorization: `token ${import.meta.env.VITE_GITHUB_API_TOKEN}`,
+        //   },
+        // },
       );
 
       // Extract the JSON data from the response
